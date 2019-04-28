@@ -39,7 +39,7 @@ const productionModules = [
 
 export default {
   server: {
-    port: process.env.PORT || 8080,
+    port: process.env.PORT || 9000,
     host: isDevelopment ? 'localhost' : '0.0.0.0'
   },
 
