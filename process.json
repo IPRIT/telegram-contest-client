@@ -7,7 +7,8 @@
     "max_memory_restart": "500M",
     "cron_restart": "0 5 * * *",
     "env_production": {
-      "NODE_ENV": "production"
+      "NODE_ENV": "production",
+      "PORT": 9000
     }
   }]
 }
