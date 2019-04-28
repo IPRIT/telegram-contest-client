@@ -44,7 +44,7 @@
            href="https://contest.dev/" target="_blank" rel="noopener">
           <img :src="logo.src"
                class="page-header__logo-image">
-          <span>Developer Challenges</span>
+          <span class="hidden-sm-and-down">Developer Challenges</span>
         </a>
 
         <div class="page-header__divider">/</div>

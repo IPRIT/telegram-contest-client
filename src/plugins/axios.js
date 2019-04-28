@@ -3,9 +3,6 @@ import { consoleLogNamespaced, ensureNumber, extractToken, isBrowser } from "../
 const logger = consoleLogNamespaced( 'Axios' );
 
 export default function ({ $axios, app, store }) {
-  const { token } = extractToken( app );
-  token && $axios.setHeader( 'X-Token', token );
-
   $axios.onRequest( onRequest );
   $axios.onError( onError );
 

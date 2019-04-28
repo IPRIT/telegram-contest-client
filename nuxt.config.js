@@ -27,6 +27,7 @@ const publicPath = `/dist/`;
 const apiProtocol = 'http' + (isProduction ? 's' : '');
 const apiServerEndpoint = `http://${config.apiHost}/api`;
 const apiBrowserEndpoint = `${apiProtocol}://${config.apiHost}/api`;
+const socketURL = `${apiProtocol}://${config.apiHost}`;
 
 const productionModules = [
   /**
@@ -184,10 +185,12 @@ export default {
    */
   plugins: [
     { src: '~/plugins/polyfills', ssr: false },
+    { src: '~/plugins/ion', ssr: false },
+    { src: '~/plugins/socket', ssr: false },
     '~/plugins/vuex-router-sync',
     '~/plugins/axios',
     '~/plugins/future',
-    '~/plugins/validator'
+    '~/plugins/validator',
   ],
   /*
   ** Build configuration
@@ -259,6 +262,7 @@ function overrideWebpackConfig (config, context) {
     const definitions = definitionPlugin.definitions;
     definitions['process.apiHost'] = `"${config.apiHost}"`;
     definitions['process.isSpa'] = `${isSpa}`;
+    definitions['process.socketURL'] = `"${socketURL}"`;
   }
 
   return config;

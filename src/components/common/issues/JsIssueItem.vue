@@ -98,9 +98,10 @@
           <div class="js-issue-item__user-name" :class="userTcClass">{{ item.Author.displayName }}</div>
           <span class="js-issue-item__created-at">
             <js-elapsed-time :time="item.createdAt" :updateInterval="5000"></js-elapsed-time>
+            <span v-if="item.parentIssueId">&nbsp;(replied to the issue)</span>
           </span>
 
-          <span class="js-issue-item__entry-id">Entry #{{ item.Entry.externalId }}</span>
+          <span class="js-issue-item__entry-id"><span class="hidden-sm-and-down">Entry&nbsp;</span>#{{ item.Entry.externalId }}</span>
         </a>
         <div class="js-issue-item__text" v-html="item.displayMessage"></div>
         <div class="js-issue-item__files" v-if="item.MediaFiles.length">

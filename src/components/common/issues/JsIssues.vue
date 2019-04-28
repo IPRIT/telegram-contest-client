@@ -67,10 +67,12 @@
                        class="js-issues__infinity-list"
                        @load="loadMore">
 
-      <js-issue-item class="js-issues__item"
-                     v-for="item in issues"
-                     :key="item.id"
-                     :item="item"></js-issue-item>
+      <transition-group name="fade-transition-group">
+        <js-issue-item class="js-issues__item"
+                       v-for="item in issues"
+                       :key="item.id"
+                       :item="item"></js-issue-item>
+      </transition-group>
 
       <div slot="actions" class="js-issues__load-more">
         <js-btn block

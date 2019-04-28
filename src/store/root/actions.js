@@ -40,5 +40,10 @@ export const actions = {
 
       return issues;
     });
+  },
+
+  prependIssues ({ commit, state }, issues = []) {
+    commit( mutations.PREPEND_ISSUES, issues );
+    commit( mutations.ADD_OFFSET, issues.length );
   }
 };

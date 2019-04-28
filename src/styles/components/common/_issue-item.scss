@@ -71,12 +71,12 @@ $bem-use-namespaces: true;
     align-items: flex-end;
     text-decoration: none !important;
     position: relative;
+    color: #000;
   }
 
   @include element('user-name') {
     font-weight: 500;
     font-size: 15px;
-    color: #000;
   }
 
   @include element('created-at') {
