@@ -1,0 +1,13 @@
+{
+  "apps" : [{
+    "name": "cd-frontend",
+    "script": "node_modules/nuxt/bin/nuxt.js",
+    "args"  : "start --modern=server",
+    "exec_mode": "cluster",
+    "max_memory_restart": "500M",
+    "cron_restart": "0 5 * * *",
+    "env_production": {
+      "NODE_ENV": "production"
+    }
+  }]
+}
