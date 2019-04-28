@@ -1,0 +1,50 @@
+%layer-block {
+  display: block;
+  width: 100%;
+}
+
+%layer-block-fill {
+  @extend %layer-block;
+  height: 100%;
+}
+
+%layer-flex, %layer-flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+%layer-flex-column {
+  @extend %layer-flex;
+  flex-direction: column;
+}
+
+%layer-absolute {
+  @extend %layer-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+%layer-absolute-fill {
+  @extend %layer-absolute;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+}
+
+%layer-fixed {
+  @extend %layer-block;
+  position: fixed;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  top: 0;
+  left: 0;
+}
+
+%layer-fixed-fill {
+  @extend %layer-fixed;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+}

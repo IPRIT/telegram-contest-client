@@ -1,0 +1,36 @@
+@import "../../core/settings/index";
+@import "../../core/tools/index";
+
+$bem-use-namespaces: true;
+
+@include block('input', 'component') {
+  position: relative;
+
+  @include element('input') {
+    padding: $indent-medium - 3 $indent-medium;
+    font-family: $font-family-text;
+    outline: none;
+    border: 2px solid $gray-lightest-color;
+    border-radius: $radius-large;
+    font-size: $font-size-heading;
+    width: 100%;
+
+    @include input-placeholder-color($gray-light-color, (focus: darken($gray-light-color, 10)));
+
+    &:focus {
+      border-color: $gray-light-color;
+    }
+  }
+
+  @include modifier('disabled') {
+    background-color: lighten($gray-lightest-color, 10);
+  }
+
+  @include modifier('textarea') {
+    @include modifies-element('input') {
+      resize: none;
+    }
+  }
+}
+
+$bem-use-namespaces: false;

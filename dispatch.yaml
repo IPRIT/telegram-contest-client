@@ -1,0 +1,6 @@
+dispatch:
+  - url: "javascript-future.io/*"
+    service: default
+
+  - url: "api.javascript-future.io/*"
+    service: api

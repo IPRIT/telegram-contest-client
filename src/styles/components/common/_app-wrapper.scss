@@ -1,0 +1,71 @@
+@import "../../core/settings/index";
+@import "../../core/tools/index";
+
+@include block('app-wrapper', 'component') {
+  min-height: 100%;
+
+  @include element('content') {
+    height: 100%;
+    transition: $primary-transition, padding-top 0s;
+    position: relative;
+    background-color: white;
+    box-shadow: -5px 0 8px -2px rgba(0,0,0,.07);
+  }
+
+  @include element('inner') {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+
+    @include media-query(md-and-up) {
+      min-height: 100vh;
+    }
+  }
+
+  @include element('content-overlay') {
+    @extend %layer-absolute-fill;
+    z-index: $app-content-overlay-z-index;
+
+    @include media-query(md-and-up) {
+      display: none;
+    }
+  }
+
+  @include element('aside') {
+    -webkit-overflow-scrolling: touch;
+    position: fixed;
+    width: $app-menu-shift;
+    background-color: $gray-lightest-color;
+    color: $primary-text;
+    overflow-y: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    @include media-query(md-and-up) {
+      display: none !important;
+    }
+
+    > * {
+      height: 100%;
+    }
+  }
+
+  @include modifier('menu_opened') {
+    @include modifies-element('content') {
+      // apply these styles only on mobile devices
+      @include media-query(md-and-down) {
+        position: fixed;
+        top: 0;
+        z-index: $app-content-z-index;;
+        max-height: 100%;
+        overflow: hidden;
+        transform: translate3d($app-menu-shift, 0, 0);
+      }
+
+      @media screen and (max-width: 360px) {
+        transform: translate3d($app-menu-small-shift, 0, 0);
+      }
+    }
+  }
+}

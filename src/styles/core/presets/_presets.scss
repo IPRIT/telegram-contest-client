@@ -1,0 +1,13 @@
+@import "../settings/index";
+@import "../tools/index";
+
+/** Display breakpoints */
+@each $size, $query in $layout-breakpoint-displays {
+  .hidden {
+    &-#{$size} {
+      @media #{$query} {
+        display: none !important;
+      }
+    }
+  }
+}

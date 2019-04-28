@@ -1,0 +1,64 @@
+@import "../../core/settings/index";
+@import "../../core/tools/index";
+
+@include block('page-header', 'component') {
+  height: $page-header-height;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  background-color: #fff;
+
+  @include element('inner') {
+    @include container;
+    @extend %layer-flex-row;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px rgba(0, 0, 0, .12);
+  }
+
+  @include element('nav') {
+    @extend %layer-flex-row;
+    align-items: center;
+    font-size: 15px;
+  }
+
+  @include element('nav-item') {
+    @extend %layer-flex-row;
+    align-items: center;
+    font-weight: 500;
+    position: relative;
+    top: 1px;
+
+    &.active {
+      cursor: pointer;
+    }
+
+    @include modifier('logo') {
+      user-select: none;
+      color: $primary-color;
+
+      a {
+        padding: $indent-medium;
+        @extend %layer-flex-row;
+        align-items: center;
+      }
+
+      img {
+        position: relative;
+        top: -1px;
+      }
+
+      span {
+        margin-left: 15px;
+      }
+    }
+  }
+
+  @include element('divider') {
+    padding: 0 $indent-small;
+    color: #d4d4d4 !important;
+    position: relative;
+    top: 1px;
+  }
+}

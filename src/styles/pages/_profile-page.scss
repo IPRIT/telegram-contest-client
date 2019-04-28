@@ -1,0 +1,7 @@
+@import "../core/settings/index";
+@import "../core/tools/index";
+
+@include block('profile-page', 'component') {
+  min-height: 100%;
+  min-height: 100vh;
+}

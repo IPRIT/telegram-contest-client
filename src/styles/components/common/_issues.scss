@@ -1,0 +1,44 @@
+@import "../../core/settings/index";
+@import "../../core/tools/index";
+
+$bem-use-namespaces: true;
+
+@include block('issues', 'component') {
+  padding-top: $page-header-height + $indent-medium;
+
+  @include element('load-more') {
+    padding: $indent-large 0;
+    @extend %layer-flex-row;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .infinity-scroll__actions {
+    @extend %layer-flex-row;
+    justify-content: center;
+
+    .js-btn {
+      max-width: 250px;
+      width: 100%;
+    }
+  }
+
+  .infinity-scroll__loading {
+    @extend %layer-flex-row;
+    justify-content: center;
+    align-items: center;
+    height: 94px;
+  }
+
+  @include element('infinity-list') {
+    max-width: 500px;
+  }
+
+  @include element('item') {
+    margin-bottom: $indent-large + 4;
+  }
+}
+
+$bem-use-namespaces: false;

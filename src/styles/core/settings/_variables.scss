@@ -1,0 +1,260 @@
+/**
+ * Bem Constructor settings override
+ */
+$bem-use-namespaces: false;   // Defaults to true
+$bem-element-separator: '__'; // Defaults to '__'
+$bem-modifier-separator: '_'; // Defaults to '--'
+$bem-block-namespaces: (
+  'utility': 'u',
+  'object': 'o',
+  'component': 'js',
+);
+
+/******* Common *******/
+
+/**
+ * Layout breakpoints
+ * xs, sm, md, lg
+ **/
+$layout-breakpoints: (
+  xs: 480px,
+  sm: 720px,
+  md: 1024px,
+  lg: 1280px
+);
+
+$layout-breakpoint-xs: map_get($layout-breakpoints, xs) !default;
+$layout-breakpoint-sm: map_get($layout-breakpoints, sm) !default;
+$layout-breakpoint-md: map_get($layout-breakpoints, md) !default;
+$layout-breakpoint-lg: map_get($layout-breakpoints, lg) !default;
+
+$mobile-breakpoint: sm-and-down;
+
+$layout-breakpoint-displays: (
+  xs: "screen and (max-width: #{$layout-breakpoint-xs - 1})",
+  xs-only: "screen and (max-width: #{$layout-breakpoint-xs - 1})",
+  xs-and-down: "screen and (max-width: #{$layout-breakpoint-xs - 1})",
+  xs-and-up: "screen and (min-width: #{$layout-breakpoint-xs})",
+
+  sm: "screen and (max-width: #{$layout-breakpoint-sm - 1})",
+  sm-only: "screen and (min-width: #{$layout-breakpoint-xs}) and (max-width: #{$layout-breakpoint-sm - 1})",
+  sm-and-down: "screen and (max-width: #{$layout-breakpoint-sm - 1})",
+  sm-and-up: "screen and (min-width: #{$layout-breakpoint-sm})",
+
+  md: "screen and (max-width: #{$layout-breakpoint-md - 1})",
+  md-only: "screen and (min-width: #{$layout-breakpoint-sm}) and (max-width: #{$layout-breakpoint-md - 1})",
+  md-and-down: "screen and (max-width: #{$layout-breakpoint-md - 1})",
+  md-and-up: "screen and (min-width: #{$layout-breakpoint-md})",
+
+  lg: "screen and (max-width: (#{$layout-breakpoint-lg - 1}))",
+  lg-only: "screen and (min-width: #{$layout-breakpoint-md}) and (max-width: #{$layout-breakpoint-lg - 1})",
+  lg-and-down: "screen and (max-width: (#{$layout-breakpoint-lg - 1}))",
+  lg-and-up: "screen and (min-width: #{$layout-breakpoint-lg})",
+
+  xl-only: "screen and (min-width: #{$layout-breakpoint-lg})"
+);
+
+/** Radius */
+$radius-small: 2px;
+$radius-medium: 4px;
+$radius-large: 8px;
+$radius-xlarge: 16px;
+
+/** Indents */
+$indent-xsmall: 4px;
+$indent-small: 8px;
+$indent-medium: 16px;
+$indent-large: 24px;
+$indent-xlarge: 40px;
+$indent-xxlarge: 68px;
+$indent-xxxlarge: 72px;
+
+/** Grid */
+$grid-gutter: $indent-small;
+$grid-columns: 12;
+$grid-gutters: (
+  xs: ($grid-gutter / 4),
+  sm: ($grid-gutter / 2),
+  md: $grid-gutter,
+  lg: ($grid-gutter * 2),
+  xl: ($grid-gutter * 3)
+);
+
+/** Typography */
+$font-family-default: 'Roboto', Arial, sans-serif;
+$font-family-text: $font-family-default;
+
+$font-size-caption: 12px;
+$font-size-body: 14px;
+$font-size-subheading: 16px;
+$font-size-heading: 18px;
+$font-size-title: 20px;
+$font-size-headline: 24px;
+$font-size-display-1: 36px;
+
+$line-height-caption: 20px;
+$line-height-body: 24px;
+$line-height-subheading: 28px;
+$line-height-heading: 32px;
+$line-height-title: 34px;
+$line-height-headline: 38px;
+$line-height-display-1: 48px;
+$line-height-display-2: 48px;
+
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 600;
+$font-weight-bold: 700;
+$font-weight-black: 800;
+
+/** Transitions */
+$transition: (
+  fast-out-slow-in: cubic-bezier(0.4, 0.0, 0.2, 1),
+  linear-out-slow-in: cubic-bezier(0.0, 0.0, 0.2, 1),
+  fast-out-linear-in: cubic-bezier(0.4, 0.0, 1, 1),
+  ease-in-out: cubic-bezier(0.4, 0.0, 0.6, 1),
+  fast-in-fast-out: cubic-bezier(.25,.8,.25,1),
+  swing: cubic-bezier(.25,.8,.50,1)
+);
+
+$primary-transition-function: map_get($transition, 'swing');
+$primary-transition: .3s $primary-transition-function;
+$secondary-transition-function: map_get($transition, 'ease-in-out');
+$secondary-transition: .2s $secondary-transition-function;
+
+/** Shadows */
+$shadow-key-umbra-opacity: .15;
+$shadow-key-penumbra-opacity: .04;
+$shadow-key-ambient-opacity: .04;
+
+$shadow-key-umbra: (
+  0px 0px 0px 0px,
+  0px 2px 1px -1px,
+  0px 3px 1px -2px,
+  0px 3px 3px -2px,
+  0px 2px 4px -1px,
+  0px 3px 5px -1px,
+  0px 3px 5px -1px,
+  0px 4px 5px -2px,
+  0px 5px 5px -3px,
+  0px 5px 6px -3px,
+  0px 6px 6px -3px,
+  0px 6px 7px -4px,
+  0px 7px 8px -4px,
+  0px 7px 8px -4px,
+  0px 7px 9px -4px,
+  0px 8px 9px -5px,
+  0px 8px 10px -5px,
+  0px 8px 11px -5px,
+  0px 9px 11px -5px,
+  0px 9px 12px -6px,
+  0px 10px 13px -6px,
+  0px 10px 13px -6px,
+  0px 10px 14px -6px,
+  0px 11px 14px -7px,
+  0px 11px 15px -7px
+);
+
+$shadow-key-penumbra: (
+  0px 0px 0px 0px,
+  0px 1px 1px 0px,
+  0px 2px 2px 0px,
+  0px 3px 4px 0px,
+  0px 4px 5px 0px,
+  0px 5px 8px 0px,
+  0px 6px 10px 0px,
+  0px 7px 10px 1px,
+  0px 8px 10px 1px,
+  0px 9px 12px 1px,
+  0px 10px 14px 1px,
+  0px 11px 15px 1px,
+  0px 12px 17px 2px,
+  0px 13px 19px 2px,
+  0px 14px 21px 2px,
+  0px 15px 22px 2px,
+  0px 16px 24px 2px,
+  0px 17px 26px 2px,
+  0px 18px 28px 2px,
+  0px 19px 29px 2px,
+  0px 20px 31px 3px,
+  0px 21px 33px 3px,
+  0px 22px 35px 3px,
+  0px 23px 36px 3px,
+  0px 24px 38px 3px
+);
+
+$shadow-key-ambient: (
+  0px 0px 0px 0px,
+  0px 1px 3px 0px,
+  0px 1px 5px 0px,
+  0px 1px 8px 0px,
+  0px 1px 10px 0px,
+  0px 1px 14px 0px,
+  0px 1px 18px 0px,
+  0px 2px 16px 1px,
+  0px 3px 14px 2px,
+  0px 3px 16px 2px,
+  0px 4px 18px 3px,
+  0px 4px 20px 3px,
+  0px 5px 22px 4px,
+  0px 5px 24px 4px,
+  0px 5px 26px 4px,
+  0px 6px 28px 5px,
+  0px 6px 30px 5px,
+  0px 6px 32px 5px,
+  0px 7px 34px 6px,
+  0px 7px 36px 6px,
+  0px 8px 38px 7px,
+  0px 8px 40px 7px,
+  0px 8px 42px 7px,
+  0px 9px 44px 8px,
+  0px 9px 46px 8px
+);
+
+/** Ripple Animation */
+$ripple-animation-transition: .35s get($transition, 'linear-out-slow-in');
+$ripple-animation-visible-opacity: .2;
+
+/** Page */
+$page-header-height: 58px;
+$page-header-height-mobile: 60px;
+
+/** Mobile Menu */
+$app-menu-shift: 300px;
+$app-menu-small-shift: 250px;
+$app-content-z-index: 190; // z-index is lower than dialog's overlay z-index (dialog's overlay starts with 200)
+$app-content-overlay-z-index: $app-content-z-index + 1;
+
+/** Buttons */
+$button-border-radius: $radius-medium;
+$button-height: 34px;
+$button-min-width: 104px;
+$button-font-size: $font-size-body;
+$button-font-weight: $font-weight-medium;
+$button-min-width: 88px;
+$button-padding: $indent-medium - 2;
+$button-text-transform: uppercase;
+
+$button-small-height: 29px;
+$button-small-min-width: 88px;
+$button-small-font-size: $font-size-caption;
+$button-small-padding: 0 $indent-medium - 4;
+
+$button-large-height: 40px;
+$button-large-min-width: 120px;
+$button-large-font-size: $font-size-subheading;
+$button-large-padding: 0 $indent-medium;
+
+/** Loading */
+$loading-circle-size: 10px;
+$loading-circle-large-size: $loading-circle-size + 3;
+$loading-circle-small-size: $loading-circle-size - 3;
+$loading-circles-number-max: 3;
+$loading-circle-animation-duration: .45s;
+$loading-circle-animation-delay: $loading-circle-animation-duration / 4;
+
+/** Icon */
+$icon-small-size: 20px;
+$icon-size: 24px;
+$icon-large-size: 28px;

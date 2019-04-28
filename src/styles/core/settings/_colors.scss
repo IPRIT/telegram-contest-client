@@ -1,0 +1,72 @@
+// project colors
+$black-color: black;
+$white-color: white;
+$blue-color: #0088cc;
+$blue-light-color: #5273FF;
+$blue-lightest-color: #f0f3ff;
+$blue-lightest-alpha-color: rgba(#002FF8, .06);
+$gray-color: #637B8F;
+$blue-another-color: #958DF0;
+$blue-another-alpha-color: rgba(#5346E7, .62);
+$yellow-color: #FFDE31;
+$yellow-light-color: #FFEB83;
+$pink-color: #FF3194;
+$pink-light-color: rgba(#F800D1, .3);
+$light-blue-color: #4DDFBC;
+$red-color: #ff231c;
+
+// gray colors
+$gray-color: #637B8F;
+$gray-light-color: rgba(#637B8F, .5);
+$gray-lightest-color: rgba(#637B8F, .1);
+$gray-dark-color: darken($gray-color, 15);
+
+// theme colors
+$primary-color: $blue-color                 !default;
+$secondary-color: $blue-another-color       !default;
+$accent-color: $yellow-color                !default;
+$error-color: $red-color                    !default;
+
+// text colors
+$primary-text: $black-color                 !default;
+$secondary-text: $gray-dark-color           !default;
+$link-text: darken($blue-another-color, 10)             !default;
+$border-color: rgba($gray-light-color, .2)            !default;
+$disabled-color: $gray-lightest-color       !default;
+
+// text color states
+$link-text-hovered: darken($blue-another-color, 10)  !default;
+
+/** Social networks */
+$vk-color: #5178A3;
+$ok-color: #F36428;
+$fb-color: #3E5392;
+$mail-color: #005FF9;
+$telegram-color: #0088CC;
+$google-color: #FFF;
+$yandex-color: #F00;
+
+// theme object
+$themes: (
+  primary: $primary-color,
+  secondary: $secondary-color,
+  accent: $accent-color,
+  yellow: $yellow-color,
+  error: $error-color,
+  gray: $gray-color,
+  pink: $pink-color,
+  light-blue: $light-blue-color,
+  telegram: $telegram-color,
+  white: $white-color,
+  black: $black-color
+);
+
+/** Buttons */
+$button-background-color: white;
+$button-text-color: black;
+$button-border-color: transparentize(black, .85);
+$button-disabled-color: $disabled-color;
+$button-disabled-text-color: $gray-light-color;
+
+/** Loading */
+$loading-circle-colors: ( $primary-color, $secondary-color, $accent-color, $yellow-color );

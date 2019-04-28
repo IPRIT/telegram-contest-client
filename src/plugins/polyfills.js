@@ -1,0 +1,1 @@
+// require( 'event-source-polyfill' );

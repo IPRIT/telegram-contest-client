@@ -1,0 +1,175 @@
+@import "../../core/settings/index";
+@import "../../core/tools/index";
+
+$bem-use-namespaces: true;
+
+@include block('issue-item', 'component') {
+  margin-top: 16px;
+  position: relative;
+
+  &:after {
+    position: absolute;
+    content: '';
+    bottom: -$indent-small - 5;
+    height: 1px;
+    width: calc(100% - 57px);
+    left: 57px;
+    background-color: #f0f0f0;
+  }
+
+  @include element('wrapper') {
+    @extend %layer-flex-row;
+  }
+
+  @include element('photo') {
+    display: block;
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    background: #efefef;
+    text-align: center;
+    overflow: hidden;
+    text-decoration: none;
+    border: 0;
+    border-radius: 22px;
+  }
+
+  @include element('image') {
+    img {
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+    }
+  }
+
+  @include element('letter') {
+    @extend %layer-flex-row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    top: 1px;
+    position: relative;
+    font-size: 20px;
+    color: #999;
+  }
+
+  @include element('animal') {
+    height: 100%;
+    width: 100%;
+    background-size: 70%;
+    background-position: center center;
+  }
+
+  @include element('body') {
+    margin-left: $indent-medium - 3;
+    width: 100%;
+  }
+
+  @include element('header') {
+    @extend %layer-flex-row;
+    align-items: flex-end;
+    text-decoration: none !important;
+    position: relative;
+  }
+
+  @include element('user-name') {
+    font-weight: 500;
+    font-size: 15px;
+    color: #000;
+  }
+
+  @include element('created-at') {
+    font-size: 13px;
+    font-weight: normal;
+    white-space: nowrap;
+    color: #70767b;
+    margin-left: $indent-small;
+    position: relative;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @include element('entry-id') {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 13px;
+    font-weight: normal;
+    color: #70767b;
+  }
+
+  @include element('files') {
+    margin-top: $indent-small;
+    margin-bottom: $indent-small;
+  }
+
+  @include element('file') {
+    @extend %layer-flex-row;
+    align-items: center;
+    text-decoration: none !important;
+
+    &:not(:last-of-type) {
+      margin-bottom: $indent-small;
+    }
+  }
+
+  @include element('file-name') {
+    color: #000;
+    font-weight: 500;
+  }
+
+  @include element('file-size') {
+    color: #70767b;
+    font-size: 13px;
+    font-weight: normal;
+  }
+
+  @include element('file-thumb') {
+    width: 66px;
+    height: 66px;
+    border-radius: 6px;
+    box-shadow: inset 0 0 14px rgba(0, 0, 0, .05);
+    background: #efefef no-repeat center;
+    overflow: hidden;
+    margin-right: 14px;
+
+    > img {
+      max-width: 100%;
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+
+  @include element('bottom') {
+    @extend %layer-flex-row;
+    justify-content: space-between;
+    margin-top: $indent-xsmall;
+    font-size: 13px;
+    font-weight: normal;
+    color: #70767b;
+  }
+
+  @include element('rating') {
+    cursor: pointer;
+
+    .md-icon {
+      width: 18px;
+      height: 18px;
+      transform: scaleX(-1);
+      position: relative;
+      top: 3px;
+
+      > path {
+        fill: #a3a6a9;
+      }
+    }
+  }
+}
+
+$bem-use-namespaces: false;

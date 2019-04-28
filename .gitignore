@@ -1,0 +1,7 @@
+node_modules/
+.dist/
+.dist-dev/
+.dist-spa/
+.dist-spa-dev/
+.idea
+yarn-error*

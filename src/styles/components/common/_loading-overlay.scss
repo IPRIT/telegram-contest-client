@@ -1,0 +1,14 @@
+@import "../../core/settings/index";
+@import "../../core/tools/index";
+
+@include block('loading-overlay', 'component') {
+  @extend %layer-absolute-fill;
+  z-index: 2;
+  background-color: transparentize(white, .1);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+

@@ -1,0 +1,577 @@
+@import "../tools/mixins";
+
+/** Dialog Transitions */
+@include block('dialog-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: transform .1s $primary-transition-function,
+    opacity .05s $primary-transition-function;
+  }
+
+  &-enter,
+  &-leave-to {
+    transform: scale(.9);
+    opacity: 0;
+  }
+}
+
+@include block('dialog-top-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: transform .1s $primary-transition-function;
+  }
+
+  &-enter,
+  &-leave-to {
+    transform: translateY(-100%);
+  }
+}
+
+@include block('dialog-bottom-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: transform .1s $primary-transition-function;
+  }
+
+  &-enter,
+  &-leave-to {
+    transform: translateY(100%);
+  }
+}
+
+@include block('dialog-left-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: transform .1s $primary-transition-function;
+  }
+
+  &-enter,
+  &-leave-to {
+    transform: translateX(-100%);
+  }
+}
+
+@include block('dialog-right-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: transform .1s $primary-transition-function;
+  }
+
+  &-enter,
+  &-leave-to {
+    transform: translateX(100%);
+  }
+}
+
+@include block('toast-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: transform .4s get($transition, 'swing');
+
+    .r-toast__content {
+      transition: opacity .3s linear .1s;
+    }
+  }
+
+  &-enter {
+    .r-toast__content {
+      opacity: 0;
+    }
+  }
+
+  &-enter-to,
+  &-leave {
+    .r-toast__content {
+      opacity: 1;
+    }
+  }
+
+  &-enter,
+  &-leave-to {
+    &.r-toast.r-toast_top {
+      // Extra 8px to hide the bottom shadow
+      transform: translateY(calc(-100% - 8px));
+    }
+
+    &.r-toast.r-toast_bottom {
+      transform: translateY(100%);
+    }
+  }
+}
+
+@include block('menu-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: all .15s $primary-transition-function !important;
+
+    .list__tile {
+      transition: opacity .2s linear .2s;
+    }
+  }
+
+  &-enter {
+    transform: scale(.8);
+
+    .list__tile {
+      opacity: 0;
+    }
+  }
+
+  &-leave-to {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  &-leave-active,
+  &-leave-to {
+    pointer-events: none;
+  }
+
+  &-enter-to,
+  &-leave {
+    transform: scale(1);
+
+    .list__tile {
+      opacity: 1;
+    }
+  }
+}
+
+/** Generic Transitions */
+
+@include block('scale-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: $primary-transition;
+  }
+
+  &-enter,
+  &-leave,
+  &-leave-to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@include block('slide-y-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: $primary-transition;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+}
+
+@include block('slide-y-reverse-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: $primary-transition;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+}
+
+@include block('slide-x-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: $primary-transition;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+}
+
+@include block('slide-x-reverse-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: $primary-transition;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+}
+
+@include block('fade-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: $primary-transition;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+}
+
+@include block('image-transition', 'utility') {
+  &-leave-active,
+  &-enter-active {
+    transition: .6s $primary-transition-function;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+
+  &-enter-active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &-leave-active {
+    display: none;
+  }
+}
+
+@include block('bottom-sheet-transition', 'utility') {
+  &-enter {
+    transform: translateY(100%);
+  }
+
+  &-leave-to {
+    transform: translateY(100%);
+  }
+}
+
+@include block('carousel-transition', 'utility') {
+  &-enter {
+    transform: translate(100%, 0);
+  }
+
+  &-leave,
+  &-leave-to {
+    position: absolute;
+    top: 0;
+    transform: translate(-100%, 0);
+  }
+}
+
+@include block('carousel-reverse-transition', 'utility') {
+  &-enter {
+    transform: translate(-100%, 0);
+  }
+
+  &-leave,
+  &-leave-to {
+    position: absolute;
+    top: 0;
+    transform: translate(100%, 0);
+  }
+}
+
+@include block('tab-transition', 'utility') {
+  &-enter {
+    transform: translate(100%, 0);
+  }
+
+  &-enter-to {
+    transform: translate(0, 0);
+  }
+
+  &-leave,
+  &-leave-active {
+    position: absolute;
+    top: 0;
+  }
+
+  &-leave-to {
+    position: absolute;
+    transform: translate(-100%, 0);
+  }
+}
+
+@include block('tab-reverse-transition', 'utility') {
+  &-enter {
+    transform: translate(-100%, 0);
+  }
+
+  &-leave,
+  &-leave-to {
+    top: 0;
+    position: absolute;
+    transform: translate(100%, 0);
+  }
+}
+
+@include block('fab-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: $primary-transition;
+  }
+
+  &-enter,
+  &-leave-to {
+    transform: scale(0) rotate(-45deg);
+  }
+}
+
+@include block('expand-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: $primary-transition;
+  }
+}
+
+@include block('checkbox-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: all $primary-transition;
+  }
+}
+
+/** Generic Transitions' Groups */
+
+@include block('scale-transition-group', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: $primary-transition;
+  }
+
+  &-enter,
+  &-leave,
+  &-leave-to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@include block('slide-y-transition-group', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: $primary-transition;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+}
+
+@include block('slide-y-reverse-transition-group', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: $primary-transition;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+}
+
+@include block('slide-x-transition-group', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: $primary-transition;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+}
+
+@include block('slide-x-reverse-transition-group', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: $primary-transition;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+}
+
+@include block('fade-transition-group', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: $primary-transition;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+}
+
+/** Generic */
+@include block('list-transition', 'utility') {
+  &-move {
+    transition: height $primary-transition,
+      top $primary-transition,
+      transform $primary-transition !important;
+  }
+  &-enter, &-leave-to {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  &-leave-active {
+    position: absolute !important;
+    width: 100%;
+  }
+}
+
+/** Generic */
+@include block('scale-bounce-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: transform .2s cubic-bezier(0.46, 0.03, 0.54, 1.62);
+    transform-origin: center center;
+    backface-visibility: hidden;
+    will-change: transform;
+  }
+
+  &-enter,
+  &-leave-to {
+    transform: scale(0);
+  }
+}
+
+/** slide in and out transitions */
+@include block('slide-in-x-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: all .2s;
+  }
+  &-enter,
+  &-leave-active {
+    opacity: 0;
+  }
+  &-enter {
+    transform: translateX(40px);
+  }
+  &-leave-active {
+    transform: translateX(-40px);
+  }
+}
+
+@include block('slide-out-x-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: all .2s;
+  }
+  &-enter,
+  &-leave-active {
+    opacity: 0;
+  }
+  &-enter {
+    transform: translateX(-40px);
+  }
+  &-leave-active {
+    transform: translateX(40px);
+  }
+}
+@include block('slide-in-y-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: all .2s;
+  }
+  &-enter,
+  &-leave-active {
+    opacity: 0;
+  }
+  &-enter {
+    transform: translateY(40px);
+  }
+  &-leave-active {
+    transform: translateY(-40px);
+  }
+}
+
+@include block('slide-out-y-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: all .2s;
+  }
+  &-enter,
+  &-leave-active {
+    opacity: 0;
+  }
+  &-enter {
+    transform: translateY(-40px);
+  }
+  &-leave-active {
+    transform: translateY(40px);
+  }
+}
+
+/** Page transition */
+.page-enter-active {
+  transition: opacity .3s;
+  will-change: opacity;
+}
+
+.page-enter, .page-leave-active {
+  opacity: 0;
+}
+
+/** Loading transition */
+.loading-enter-active, .loading-leave-active {
+  transition: opacity .3s;
+  will-change: opacity;
+}
+
+.loading-enter, .loading-leave-active {
+  opacity: 0;
+}
+
+
+/** Auth Form transition */
+.auth-form-enter-active,
+.auth-form-leave-active,
+.auth-form-reverse-enter-active,
+.auth-form-reverse-leave-active {
+  transition: all .3s $primary-transition-function;
+}
+.auth-form-enter,
+.auth-form-leave-active,
+.auth-form-reverse-enter,
+.auth-form-reverse-leave-active{
+  opacity: 0;
+}
+.auth-form-enter,
+.auth-form-reverse-leave-active {
+  transform: translateX(300px);
+}
+.auth-form-reverse-enter,
+.auth-form-leave-active {
+  transform: translateX(-300px);
+}
+
+
+/** Mobile Menu */
+@include block('mobile-menu-transition', 'utility') {
+  &-enter-active,
+  &-leave-active {
+    transition: transform .295s $primary-transition-function;
+    transform-origin: center center;
+    will-change: transform;
+  }
+
+  &-enter,
+  &-leave-to {
+    transform: translateX(0);
+  }
+}

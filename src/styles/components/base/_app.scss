@@ -1,0 +1,21 @@
+@import "normalize.css/normalize.css";
+@import "../../core/settings/index";
+@import "../../core/tools/index";
+
+@include block('app', 'component') {
+  min-height: 100%;
+  color: $primary-text;
+  background: white;
+
+  @include media-query(md-and-up) {
+    width: 100vw;
+  }
+
+  @include element('wrap') {
+    backface-visibility: hidden;
+    min-height: 100%;
+    min-height: 100vh;
+    max-width: 100%;
+    position: relative;
+  }
+}

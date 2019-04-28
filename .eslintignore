@@ -1,0 +1,5 @@
+﻿.nuxt/*
+.public/*
+*.spec.js
+*.test.js
+node_modules/*

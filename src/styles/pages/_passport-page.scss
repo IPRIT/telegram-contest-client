@@ -1,0 +1,37 @@
+@import "../core/settings/index";
+@import "../core/tools/index";
+
+@include block('passport-page', 'component') {
+  min-height: 100%;
+  min-height: 100vh;
+
+  @include element('bg') {
+    @extend %layer-absolute-fill;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  @include element('bg-image') {
+    height: 100%;
+    width: 100%;
+    background: url('~assets/ui/bg/sign-in/bg.svg') no-repeat bottom left;
+    background-size: 100%;
+
+    @include media-query(md-and-up) {
+      background-size: cover;
+    }
+  }
+
+  @include element('content') {
+    @include container;
+    position: relative;
+    z-index: 1;
+  }
+
+  @include element('header') {
+    h2 {
+      @include font-display-1;
+    }
+  }
+}

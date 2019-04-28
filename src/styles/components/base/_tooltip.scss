@@ -1,0 +1,30 @@
+@import "../../core/settings/index";
+@import "../../core/tools/index";
+
+@include block('tooltip', 'component') {
+  position: relative;
+  user-select: none;
+
+  @include element('content') {
+    background: rgba($gray-color, .85);
+    border-radius: $radius-large;
+    color: white;
+    font-size: 12px;
+    display: inline-block;
+    padding: $indent-xsmall $indent-medium;
+    position: absolute;
+    text-transform: initial;
+    transition: .15s get($transition, 'swing');
+    width: auto;
+    pointer-events: none;
+
+    @include shadow(4, false, black, (
+      $shadow-key-umbra-opacity * 2, $shadow-key-penumbra-opacity * 2, $shadow-key-ambient-opacity * 2
+    ));
+
+    @include modifier('pink') {
+      background: rgba($pink-color, .95);
+      color: white;
+    }
+  }
+}
