@@ -44,6 +44,6 @@ export const actions = {
 
   prependIssues ({ commit, state }, issues = []) {
     commit( mutations.PREPEND_ISSUES, issues );
-    commit( mutations.ADD_OFFSET, issues.length );
+    commit( mutations.POP_ISSUES, issues.length );
   }
 };

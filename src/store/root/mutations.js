@@ -1,6 +1,7 @@
 export const SET_ISSUES = 'SET_ISSUES';
 export const APPEND_ISSUES = 'APPEND_ISSUES';
 export const PREPEND_ISSUES = 'PREPEND_ISSUES';
+export const POP_ISSUES = 'POP_ISSUES';
 export const ADD_OFFSET = 'ADD_OFFSET';
 export const RESET_OFFSET = 'RESET_OFFSET';
 
@@ -15,6 +16,12 @@ export const mutations = {
 
   [PREPEND_ISSUES] (state, issues) {
     state.issues.unshift( ...issues );
+  },
+
+  [POP_ISSUES] (state, issuesNumber) {
+    while (issuesNumber--) {
+      state.issues.pop();
+    }
   },
 
   [ADD_OFFSET] (state, offset) {
