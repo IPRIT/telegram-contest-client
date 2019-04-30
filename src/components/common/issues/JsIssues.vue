@@ -63,7 +63,7 @@
     <js-infinity-scroll :loading="isMoreLoading"
                        :canLoadNext="offset > 0 && !isMoreLoading"
                        :maxAutoLoadings="5"
-                       :containerOffset="400"
+                       :containerOffset="2200"
                        class="js-issues__infinity-list"
                        @load="loadMore">
 
