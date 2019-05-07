@@ -157,6 +157,8 @@ $bem-use-namespaces: true;
 
   @include element('rating') {
     cursor: pointer;
+    font-weight: 600;
+    font-size: 12px;
 
     .md-icon {
       width: 18px;
@@ -168,6 +170,10 @@ $bem-use-namespaces: true;
       > path {
         fill: #a3a6a9;
       }
+    }
+
+    span {
+      margin-left: 2px;
     }
   }
 }
