@@ -99,6 +99,9 @@ $bem-use-namespaces: true;
     font-size: 13px;
     font-weight: normal;
     color: #70767b;
+    background: white;
+    padding: 0 0 0 4px;
+    box-shadow: -10px 0 10px 4px white;
   }
 
   @include element('files') {
