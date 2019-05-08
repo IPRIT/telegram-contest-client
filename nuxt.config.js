@@ -135,7 +135,7 @@ export default {
    * PWA Manifest
    */
   manifest: {
-    name: 'Developer Challenges / Issues',
+    name: 'Telegram Contest Issues',
     description: 'Developer Challenges / Issues',
     keywords: 'javascript, android, ios',
     lang: 'en',
