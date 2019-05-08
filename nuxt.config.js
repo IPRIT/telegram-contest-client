@@ -136,6 +136,7 @@ export default {
    */
   manifest: {
     name: 'Telegram Contest Issues',
+    short_name: 'Issues',
     description: 'Developer Challenges / Issues',
     keywords: 'javascript, android, ios',
     lang: 'en',
