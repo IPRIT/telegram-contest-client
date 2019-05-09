@@ -106,10 +106,8 @@
         <div class="js-issue-item__text" v-html="item.displayMessage"></div>
         <div class="js-issue-item__files" v-if="item.MediaFiles.length">
           <a class="js-issue-item__file" target="_blank" :href="file.src" :title="file.displayName" v-for="file in item.MediaFiles">
-            <div class="js-issue-item__file-thumb">
-              <img v-if="file.thumbnailSrc" :src="file.thumbnailSrc" :alt="file.displayName">
-              <div v-else class="js-issue-item__file-empty-thumb"></div>
-            </div>
+            <div class="js-issue-item__file-thumb" v-if="file.thumbnailSrc" :style="{'background-image': `url(${file.thumbnailSrc})`}"></div>
+            <div v-else class="js-issue-item__file-empty-thumb"></div>
             <div class="js-issue-item__file-body">
               <div class="js-issue-item__file-name">{{ file.displayName }}</div>
               <div class="js-issue-item__file-size">{{ file.displaySize }}</div>

@@ -136,17 +136,9 @@ $bem-use-namespaces: true;
     border-radius: 6px;
     box-shadow: inset 0 0 14px rgba(0, 0, 0, .05);
     background: #efefef no-repeat center;
+    background-size: cover;
     overflow: hidden;
     margin-right: 14px;
-
-    > img {
-      max-width: 100%;
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-      object-position: center center;
-    }
   }
 
   @include element('bottom') {
@@ -162,6 +154,9 @@ $bem-use-namespaces: true;
     cursor: pointer;
     font-weight: 600;
     font-size: 12px;
+    white-space: nowrap;
+    min-width: 55px;
+    text-align: right;
 
     .md-icon {
       width: 18px;
@@ -178,6 +173,10 @@ $bem-use-namespaces: true;
     span {
       margin-left: 2px;
     }
+  }
+
+  @include element('device') {
+    line-height: 1.4;
   }
 }
 
