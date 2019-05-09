@@ -144,6 +144,7 @@ $bem-use-namespaces: true;
   @include element('bottom') {
     @extend %layer-flex-row;
     justify-content: space-between;
+    align-items: center;
     margin-top: $indent-xsmall;
     font-size: 13px;
     font-weight: normal;
