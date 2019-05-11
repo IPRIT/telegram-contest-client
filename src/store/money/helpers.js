@@ -1,4 +1,4 @@
-import { getElementOffset } from '../../utils/browser';
+import { getElementOffset, getElementWidth } from '../../utils/browser';
 import { animationDelay } from '../../utils/animation';
 import { generateNumber } from '../../utils/misc';
 
@@ -7,6 +7,10 @@ export function createAnimation (userId, funds = 10) {
 
   const rowElement = document.querySelector( `[data-user-id="${userId}"]` );
   if (!rowElement) {
+    return;
+  }
+  const bodyWidth = getElementWidth( document.body );
+  if (bodyWidth < 720) {
     return;
   }
   const rowOffset = getElementOffset( rowElement );
