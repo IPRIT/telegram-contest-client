@@ -48,6 +48,10 @@ $bem-use-namespaces: true;
     top: 0;
     left: 0;
     width: 100%;
+
+    @include media-query(sm-and-down) {
+      padding: 10px 10px;
+    }
   }
 
   @include element('left') {
@@ -68,6 +72,14 @@ $bem-use-namespaces: true;
     border-radius: $size / 2;
     background-size: 70%;
     background-position: center;
+
+    @include media-query(sm-and-down) {
+      $size: 30px;
+      width: $size;
+      height: $size;
+      min-width: $size;
+      border-radius: $size / 2;
+    }
   }
 
   @include element('name') {

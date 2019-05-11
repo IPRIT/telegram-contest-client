@@ -11,7 +11,7 @@ export function createAnimation (userId, funds = 10) {
   const userNameClassName = userNameElement.className;
   const tcClass = userNameClassName.match( /(tc\d+)/i )[1];
 
-  const duration = 500 + Math.random() * 1000;
+  const duration = 800 + Math.random() * 1000;
 
   const bubbleWrapper = document.createElement( 'div' );
   bubbleWrapper.classList.add( 'js-money-row__bubble-wrapper' );

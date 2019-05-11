@@ -13,7 +13,10 @@ $bem-use-namespaces: true;
     padding: 2px 0;
     margin: 25px 0 21px;
     text-transform: uppercase;
-    color: white;
+
+    .theme-dark & {
+      color: white;
+    }
   }
 
   @include element('row') {

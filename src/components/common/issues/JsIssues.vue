@@ -2,6 +2,7 @@
   // Icons
   import MdRefresh from 'md-svg-vue/dist/navigation/MdRefresh.vue';
   import MdArrowDownward from 'md-svg-vue/dist/navigation/MdArrowDownward.vue';
+  import MdAttachMoney from 'md-svg-vue/dist/editor/MdAttachMoney.vue';
 
   import JsBtn from '../../base/JsBtn';
   import JsImage from '../../base/JsImage';
@@ -28,7 +29,8 @@
       JsInfinityScroll,
 
       MdRefresh,
-      MdArrowDownward
+      MdArrowDownward,
+      MdAttachMoney
     },
 
     data: () => ({
@@ -80,7 +82,7 @@
 
 <template>
   <main :class="classes">
-    <div>
+    <div style="width: 100%;">
       <div class="js-issues__title">Issues</div>
 
       <js-infinity-scroll :loading="isMoreLoading"
@@ -123,6 +125,10 @@
     <div class="js-issues__prize-pool hidden-sm-and-down" v-if="theme === 'dark'">
       <js-money-table></js-money-table>
     </div>
+
+    <nuxt-link class="js-issues__awards-button hidden-sm-and-up" v-if="theme === 'dark'" :to="'/awards'">
+      <md-attach-money class="icon_large"></md-attach-money>
+    </nuxt-link>
 
   </main>
 </template>

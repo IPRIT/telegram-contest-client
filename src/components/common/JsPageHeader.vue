@@ -39,6 +39,10 @@
         }
         this.isThemeChanging = true;
 
+        if (this.theme === 'dark' && this.$router.currentRoute.path !== '/') {
+          this.$router.push( '/' );
+        }
+
         const themeClass = `theme-ripple_${this.theme}`;
 
         const { pageX = 0, pageY = 0 } = ev;
