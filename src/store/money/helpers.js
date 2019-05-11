@@ -6,6 +6,9 @@ export function createAnimation (userId, funds = 10) {
   const root = document.querySelector( '#app' );
 
   const rowElement = document.querySelector( `[data-user-id="${userId}"]` );
+  if (!rowElement) {
+    return;
+  }
   const rowOffset = getElementOffset( rowElement );
   const userNameElement = rowElement.querySelector( '.js-money-row__name' );
   const userNameClassName = userNameElement.className;

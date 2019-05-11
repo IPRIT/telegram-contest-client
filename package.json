@@ -39,6 +39,7 @@
     "event-source-polyfill": "^1.0.5",
     "eventemitter3": "^3.1.0",
     "ion-sound": "^3.0.7",
+    "lodash.debounce": "^4.0.8",
     "lru-cache": "^5.1.1",
     "md-svg-vue": "^1.0.20",
     "normalize.css": "^8.0.1",

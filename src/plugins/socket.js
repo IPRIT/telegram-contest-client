@@ -18,7 +18,11 @@ export default function ({ app, store }) {
     });
 
     socket.on('money.update', updates => {
-      store.dispatch( 'money/updateFromServer', updates );
+      const state = store.state;
+      const theme = state.ui.theme;
+      if (theme === 'dark') {
+        store.dispatch( 'money/updateFromServer', updates );
+      }
     });
   });
 }

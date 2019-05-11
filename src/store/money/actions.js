@@ -4,6 +4,7 @@ import { SocketManager } from '../../utils/network/socket-manager';
 import { animationDelay } from '../../utils/animation';
 import { createAnimation } from './helpers';
 import { DEFAULT_FUNDS } from './constants';
+import debounce from 'lodash.debounce';
 
 export async function fetchTable ({ commit, dispatch }) {
   return getTable( this.$axios ).then(table => {
@@ -28,11 +29,19 @@ export function addFunds ({ commit, state, dispatch }, { userId }) {
   });
 }
 
+let debouncedSort = null;
+
 export function sortTable ({ commit, state }) {
-  const table = state.table.sort((a, b) => {
-    return b.balance - a.balance;
-  });
-  commit( mutations.SET_TABLE, table );
+  if (!debouncedSort) {
+    debouncedSort = debounce(_ => {
+      const table = state.table.sort((a, b) => {
+        return b.balance - a.balance;
+      });
+      commit( mutations.SET_TABLE, table );
+    }, 1000);
+  }
+
+  debouncedSort();
 }
 
 export function updateFromServer ({ commit, state, dispatch }, updates = []) {
