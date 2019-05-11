@@ -111,6 +111,8 @@ $bem-use-namespaces: true;
     top: 0;
     left: 0;
     z-index: 10000;
+    pointer-events: none;
+    user-select: none;
   }
 
   @include element('bubble') {
@@ -125,7 +127,6 @@ $bem-use-namespaces: true;
     border: 2px solid currentColor;
     white-space: nowrap;
     transition: ease-in;
-    pointer-events: none;
 
     @include modifier('animating1') {
       animation: bubbling1 3s cubic-bezier(0.75,-0.04, 1, 1.05);
