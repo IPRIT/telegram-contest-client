@@ -22,13 +22,19 @@
 
     computed: {
       ...moneyStore.mapState({
-        table: state => state.table
+        table: state => state.table,
+        prizePool: state => state.prizePool
       }),
 
       classes () {
         return {
           'js-money-table': true
         };
+      },
+
+      formattedPrizePool () {
+        const prizePool = this.prizePool;
+        return `$${prizePool.format(0, 3, ',')}`;
       }
     }
   };
@@ -38,6 +44,11 @@
   <div :class="classes">
 
     <div class="js-money-table__title">Awards</div>
+
+    <div class="js-money-table__prize-pool">
+      <div class="js-money-table__prize-pool-title">Prize Pool</div>
+      <div class="js-money-table__prize-pool-total">{{ formattedPrizePool }}</div>
+    </div>
 
     <transition-group name="list-transition" tag="div">
       <js-money-row class="js-money-table__row"

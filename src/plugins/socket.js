@@ -27,5 +27,13 @@ export default function ({ app, store }, inject) {
         store.dispatch( 'money/updateFromServer', updates );
       }
     });
+
+    socket.on('money.setPrizePool', prizePool => {
+      const state = store.state;
+      const theme = state.ui.theme;
+      if (theme === 'dark') {
+        store.dispatch( 'money/setPrizePool', prizePool );
+      }
+    });
   });
 }

@@ -1,3 +1,4 @@
 export const state = () => ({
-  table: null
+  table: null,
+  prizePool: 0
 });

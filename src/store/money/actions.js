@@ -7,8 +7,9 @@ import { DEFAULT_FUNDS } from './constants';
 import debounce from 'lodash.debounce';
 
 export async function fetchTable ({ commit, dispatch }) {
-  return getTable( this.$axios ).then(table => {
+  return getTable( this.$axios ).then(({ table, prizePool = 0 }) => {
     commit( mutations.SET_TABLE, table );
+    commit( mutations.SET_PRIZE_POOL, prizePool );
     dispatch( 'sortTable' );
   });
 }
@@ -67,4 +68,8 @@ export function updateFromServer ({ commit, state, dispatch }, updates = []) {
   return animationDelay( 10 ).then(_ => {
     dispatch( 'sortTable' );
   });
+}
+
+export function setPrizePool ({ commit, state, dispatch }, prizePool = 0) {
+  commit( mutations.SET_PRIZE_POOL, prizePool );
 }
