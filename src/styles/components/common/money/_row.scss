@@ -18,7 +18,9 @@ $bem-use-namespaces: true;
   }
 
   &:active {
-    transform: scale(.99);
+    @include media-query(sm-and-up) {
+      transform: scale(.99);
+    }
   }
 
   @include element('underlay') {
