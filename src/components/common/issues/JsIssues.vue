@@ -6,6 +6,7 @@
 
   import JsBtn from '../../base/JsBtn';
   import JsImage from '../../base/JsImage';
+  import JsSmartRender from '../../base/JsSmartRender';
   import JsInfinityScroll from '../../base/JsInfinityScroll';
 
   import JsIssueItem from './JsIssueItem';
@@ -26,6 +27,7 @@
 
       JsBtn,
       JsImage,
+      JsSmartRender,
       JsInfinityScroll,
 
       MdRefresh,
@@ -123,7 +125,9 @@
     </div>
 
     <div class="js-issues__prize-pool hidden-sm-and-down" v-if="theme === 'dark'">
-      <js-money-table></js-money-table>
+      <js-smart-render breakpoints="smAndUp">
+        <js-money-table></js-money-table>
+      </js-smart-render>
     </div>
 
     <nuxt-link class="js-issues__awards-button hidden-sm-and-up" v-if="theme === 'dark'" :to="'/awards'">
