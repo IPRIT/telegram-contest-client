@@ -6,6 +6,10 @@ $bem-use-namespaces: true;
 @include block('money-table', 'component') {
   padding: 0 0 $indent-medium $indent-medium;
 
+  @include media-query(sm-and-down) {
+    padding: 0 0 $indent-medium 0;
+  }
+
   @include element('title') {
     font-size: 13px;
     line-height: 17px;
