@@ -1,0 +1,11 @@
+@import "../core/settings/index";
+@import "../core/tools/index";
+
+@include block('awards-page', 'component') {
+  @include container;
+
+  @include element('table') {
+    padding: $indent-xxlarge 0;
+    max-width: 500px;
+  }
+}
