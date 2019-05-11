@@ -13,7 +13,10 @@
     async fetch ({ app, store, route }) {
       const { dispatch } = store;
 
-      return dispatch( 'fetchIssues' );
+      return Promise.all([
+        dispatch( 'fetchIssues' ),
+        dispatch( 'money/fetchTable' ),
+      ]);
     }
   };
 </script>

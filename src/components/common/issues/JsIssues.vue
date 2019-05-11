@@ -7,14 +7,22 @@
   import JsImage from '../../base/JsImage';
   import JsInfinityScroll from '../../base/JsInfinityScroll';
 
-  import * as rootStore from 'vuex';
   import JsIssueItem from './JsIssueItem';
+
+  // Store
+  import * as rootStore from 'vuex';
+  import { createNamespacedHelpers } from 'vuex';
+  import JsMoneyTable from '../money/JsMoneyTable';
+
+  const uiStore = createNamespacedHelpers( 'ui' );
 
   export default {
     name: 'js-issues',
 
     components: {
+      JsMoneyTable,
       JsIssueItem,
+
       JsBtn,
       JsImage,
       JsInfinityScroll,
@@ -49,52 +57,72 @@
         offset: state => state.offset
       }),
 
+      ...uiStore.mapState({
+        theme: state => state.theme
+      }),
+
       classes () {
         return {
           'js-issues': true
         };
       },
+    },
+
+    watch: {
+      theme (themeName) {
+        if (themeName === 'dark') {
+          return this.$store.dispatch( 'money/fetchTable' );
+        }
+      }
     }
   };
 </script>
 
 <template>
   <main :class="classes">
-    <js-infinity-scroll :loading="isMoreLoading"
-                       :canLoadNext="offset > 0 && !isMoreLoading"
-                       :maxAutoLoadings="5"
-                       :containerOffset="2200"
-                       class="js-issues__infinity-list"
-                       @load="loadMore">
+    <div>
+      <div class="js-issues__title">Issues</div>
 
-      <transition-group name="fade-transition-group">
-        <js-issue-item class="js-issues__item"
-                       v-for="item in issues"
-                       :key="item.id"
-                       :item="item"></js-issue-item>
-      </transition-group>
+      <js-infinity-scroll :loading="isMoreLoading"
+                          :canLoadNext="offset > 0 && !isMoreLoading"
+                          :maxAutoLoadings="5"
+                          :containerOffset="2200"
+                          class="js-issues__infinity-list"
+                          @load="loadMore">
 
-      <div slot="actions" class="js-issues__load-more">
-        <js-btn block
-                outline
-                color="primary"
-                @click="loadMore">
+        <transition-group name="fade-transition-group">
+          <js-issue-item class="js-issues__item"
+                         v-for="item in issues"
+                         :key="item.id"
+                         :item="item"></js-issue-item>
+        </transition-group>
 
-          <template v-if="!isErrored">
-            <md-arrow-downward></md-arrow-downward>
-            <span>Load more</span>
-          </template>
+        <div slot="actions" class="js-issues__load-more">
+          <js-btn block
+                  outline
+                  color="primary"
+                  @click="loadMore">
 
-          <template v-else>
-            <md-refresh></md-refresh>
-            <span class="hidden-sm-and-down">An error occurred.&nbsp;</span>
-            <span>Try again</span>
-          </template>
+            <template v-if="!isErrored">
+              <md-arrow-downward></md-arrow-downward>
+              <span>Load more</span>
+            </template>
 
-        </js-btn>
-      </div>
+            <template v-else>
+              <md-refresh></md-refresh>
+              <span class="hidden-sm-and-down">An error occurred.&nbsp;</span>
+              <span>Try again</span>
+            </template>
 
-    </js-infinity-scroll>
+          </js-btn>
+        </div>
+
+      </js-infinity-scroll>
+    </div>
+
+    <div class="js-issues__prize-pool hidden-sm-and-down" v-if="theme === 'dark'">
+      <js-money-table></js-money-table>
+    </div>
 
   </main>
 </template>

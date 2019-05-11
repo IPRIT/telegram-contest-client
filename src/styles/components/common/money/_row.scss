@@ -1,0 +1,144 @@
+@import "../../../core/settings/index";
+@import "../../../core/tools/index";
+
+$bem-use-namespaces: true;
+
+@include block('money-row', 'component') {
+  @extend %layer-flex-row;
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    #{get-element('add')} {
+      opacity: 1 !important;
+      transform: translateX( 0 ) !important;
+    }
+  }
+
+  &:active {
+    transform: scale(.99);
+  }
+
+  @include element('underlay') {
+    @extend %layer-absolute-fill;
+    z-index: 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  @include element('empty') {
+    @extend %layer-absolute-fill;
+    background-color: white;
+  }
+
+  @include element('filled') {
+    @extend %layer-absolute-fill;
+    background-color: white;
+  }
+
+  @include element('content') {
+    @extend %layer-flex-row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    position: relative;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  @include element('left') {
+    @extend %layer-flex-row;
+    align-items: center;
+  }
+
+  @include element('right') {
+    @extend %layer-flex-row;
+    align-items: center;
+  }
+
+  @include element('photo') {
+    $size: 20px;
+    width: $size;
+    height: $size;
+    min-width: $size;
+    border-radius: $size / 2;
+    background-size: 70%;
+    background-position: center;
+  }
+
+  @include element('name') {
+    margin-left: $indent-small;
+    font-weight: 500;
+    white-space: nowrap;
+    max-width: 100%;
+    @include overflow-ellipsis;
+  }
+
+  @include element('add') {
+    opacity: 0;
+    transform: translateX(10px);
+    transition: $primary-transition;
+  }
+
+  @include element('balance') {
+    margin-left: $indent-small;
+  }
+
+  @include element('bubble-wrapper') {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+  }
+
+  @include element('bubble') {
+    @extend %layer-flex-row;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 4px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    background-color: white;
+    border: 2px solid currentColor;
+    white-space: nowrap;
+    transition: ease-in;
+    pointer-events: none;
+
+    @include modifier('animating1') {
+      animation: bubbling1 3s cubic-bezier(0.75,-0.04, 1, 1.05);
+      animation-iteration-count: 1;
+    }
+
+    @include modifier('animating2') {
+      animation: bubbling2 3s cubic-bezier(0.75,-0.04, 1, 1.05);
+      animation-iteration-count: 1;
+    }
+  }
+
+  @keyframes bubbling1 {
+    0% {
+      transform: scale(.9) translateX(0) translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.2) translateX(-20px) translateY(-200px);
+    }
+  }
+
+  @keyframes bubbling2 {
+    0% {
+      transform: scale(.8) translateX(0) translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1) translateX(15px) translateY(-300px);
+    }
+  }
+}
+
+$bem-use-namespaces: false;

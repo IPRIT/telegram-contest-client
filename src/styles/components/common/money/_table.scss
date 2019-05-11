@@ -1,0 +1,26 @@
+@import "../../../core/settings/index";
+@import "../../../core/tools/index";
+
+$bem-use-namespaces: true;
+
+@include block('money-table', 'component') {
+  padding: 0 0 $indent-medium $indent-medium;
+
+  @include element('title') {
+    font-size: 13px;
+    line-height: 17px;
+    font-weight: bold;
+    padding: 2px 0;
+    margin: 25px 0 21px;
+    text-transform: uppercase;
+    color: white;
+  }
+
+  @include element('row') {
+    &:not(:first-of-type) {
+      margin-top: $indent-small;
+    }
+  }
+}
+
+$bem-use-namespaces: false;

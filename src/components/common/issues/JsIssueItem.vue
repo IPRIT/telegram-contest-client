@@ -78,6 +78,10 @@
 
       issueURL () {
         return `https://contest.dev/chart-${this.platformType}/entry${this.item.Entry.externalId}?sort=date#issue${this.item.externalId}`;
+      },
+
+      displayMessage () {
+        return this.item.displayMessage.replace( /<a/gi, '<a target="_blank" rel="noopener"' );
       }
     }
   };
@@ -86,7 +90,7 @@
 <template>
   <section :class="classes">
     <div class="js-issue-item__wrapper">
-      <a class="js-issue-item__photo" target="_blank" :href="issueURL">
+      <a class="js-issue-item__photo" rel="noopener" target="_blank" :href="issueURL">
         <div class="js-issue-item__animal" v-if="hasAnimal" :class="zooClasses"></div>
         <div class="js-issue-item__image" v-else-if="userPhoto">
           <img :src="userPhoto.src" :alt="userPhoto.displayName">
@@ -94,7 +98,7 @@
         <div class="js-issue-item__letter" v-else>{{ userFirstLetter }}</div>
       </a>
       <div class="js-issue-item__body">
-        <a class="js-issue-item__header" target="_blank" :href="issueURL">
+        <a class="js-issue-item__header" rel="noopener" target="_blank" :href="issueURL">
           <div class="js-issue-item__user-name" :class="userTcClass">{{ item.Author.displayName }}</div>
           <span class="js-issue-item__created-at">
             <js-elapsed-time :time="item.createdAt" :updateInterval="5000"></js-elapsed-time>
@@ -103,9 +107,9 @@
 
           <span class="js-issue-item__entry-id"><span class="hidden-sm-and-down">Entry&nbsp;</span>#{{ item.Entry.externalId }}</span>
         </a>
-        <div class="js-issue-item__text" v-html="item.displayMessage"></div>
+        <div class="js-issue-item__text" v-html="displayMessage"></div>
         <div class="js-issue-item__files" v-if="item.MediaFiles.length">
-          <a class="js-issue-item__file" target="_blank" :href="file.src" :title="file.displayName" v-for="file in item.MediaFiles">
+          <a class="js-issue-item__file" target="_blank" rel="noopener" :href="file.src" :title="file.displayName" v-for="file in item.MediaFiles">
             <div class="js-issue-item__file-thumb" v-if="file.thumbnailSrc" :style="{'background-image': `url(${file.thumbnailSrc})`}"></div>
             <div v-else class="js-issue-item__file-empty-thumb"></div>
             <div class="js-issue-item__file-body">

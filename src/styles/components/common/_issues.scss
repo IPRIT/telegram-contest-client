@@ -5,6 +5,26 @@ $bem-use-namespaces: true;
 
 @include block('issues', 'component') {
   padding-top: $page-header-height + $indent-medium;
+  @extend %layer-flex-row;
+
+  .theme-dark & {
+    padding-top: $page-header-height;
+  }
+
+  @include element('title') {
+    font-size: 13px;
+    line-height: 17px;
+    font-weight: bold;
+    padding: 2px 0;
+    margin: 25px 0 22px;
+    text-transform: uppercase;
+    display: none;
+
+    .theme-dark & {
+      color: white;
+      display: block;
+    }
+  }
 
   @include element('load-more') {
     padding: $indent-large 0;
@@ -38,6 +58,15 @@ $bem-use-namespaces: true;
 
   @include element('item') {
     margin-bottom: $indent-large + 4;
+
+    .theme-dark & {
+      margin-left: 2px; // box-shadow width
+    }
+  }
+
+  @include element('prize-pool') {
+    flex: 1;
+    margin-left: $indent-medium;
   }
 }
 

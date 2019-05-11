@@ -15,6 +15,15 @@ $bem-use-namespaces: true;
     width: calc(100% - 57px);
     left: 57px;
     background-color: #f0f0f0;
+    transition: $primary-transition;
+
+    .theme-dark & {
+      background-color: rgba(white, .05);
+    }
+  }
+
+  .theme-dark & {
+    color: white;
   }
 
   @include element('wrapper') {
@@ -32,6 +41,11 @@ $bem-use-namespaces: true;
     text-decoration: none;
     border: 0;
     border-radius: 22px;
+    transition: $primary-transition;
+
+    .theme-dark & {
+      box-shadow: 0 0 0 2px white;
+    }
   }
 
   @include element('image') {
@@ -72,11 +86,19 @@ $bem-use-namespaces: true;
     text-decoration: none !important;
     position: relative;
     color: #000;
+
+    .theme-dark & {
+      color: #fff;
+    }
   }
 
   @include element('user-name') {
     font-weight: 500;
     font-size: 15px;
+
+    .theme-dark & {
+      color: #fff !important;
+    }
   }
 
   @include element('created-at') {
@@ -90,6 +112,10 @@ $bem-use-namespaces: true;
     &:hover {
       text-decoration: underline;
     }
+
+    .theme-dark & {
+      color: rgba(white, .5);
+    }
   }
 
   @include element('entry-id') {
@@ -102,6 +128,13 @@ $bem-use-namespaces: true;
     background: white;
     padding: 0 0 0 4px;
     box-shadow: -10px 0 10px 4px white;
+    transition: $primary-transition;
+
+    .theme-dark & {
+      background: $dark-color;
+      box-shadow: -10px 0 10px 4px $dark-color;
+      color: rgba(white, .5);
+    }
   }
 
   @include element('files') {
@@ -122,16 +155,25 @@ $bem-use-namespaces: true;
   @include element('file-name') {
     color: #000;
     font-weight: 500;
+
+    .theme-dark & {
+      color: white;
+    }
   }
 
   @include element('file-size') {
     color: #70767b;
     font-size: 13px;
     font-weight: normal;
+
+    .theme-dark & {
+      color: rgba(white, .5);
+    }
   }
 
   @include element('file-thumb') {
     width: 66px;
+    min-width: 66px;
     height: 66px;
     border-radius: 6px;
     box-shadow: inset 0 0 14px rgba(0, 0, 0, .05);
@@ -158,6 +200,11 @@ $bem-use-namespaces: true;
     white-space: nowrap;
     min-width: 55px;
     text-align: right;
+    user-select: none;
+
+    .theme-dark & {
+      color: white;
+    }
 
     .md-icon {
       width: 18px;
@@ -168,6 +215,10 @@ $bem-use-namespaces: true;
 
       > path {
         fill: #a3a6a9;
+
+        .theme-dark & {
+          fill: white;
+        }
       }
     }
 
@@ -178,6 +229,10 @@ $bem-use-namespaces: true;
 
   @include element('device') {
     line-height: 1.4;
+
+    .theme-dark & {
+      color: rgba(white, .5);
+    }
   }
 
   @include element('text') {

@@ -73,6 +73,7 @@ export default {
      * Run the middleware/*.js on every pages
      */
     middleware: [
+      'theme'
     ]
   },
 

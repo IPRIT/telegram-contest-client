@@ -1,0 +1,26 @@
+@import "../settings/index";
+@import "../tools/index";
+
+@include block('theme-ripple', 'component') {
+  position: absolute;
+  top: -200px;
+  left: -200px;
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+  transition: .7s $primary-transition-function;
+  z-index: 1000000;
+
+  @include modifier('default') {
+    background-color: $dark-color;
+  }
+
+  @include modifier('dark') {
+    background-color: white;
+  }
+
+  @include modifier('hiding') {
+    transition: .5s $primary-transition-function;
+    opacity: 0;
+  }
+}

@@ -16,5 +16,9 @@ export default function ({ app, store }) {
 
       store.dispatch( 'prependIssues', [ issue ] );
     });
+
+    socket.on('money.update', updates => {
+      store.dispatch( 'money/updateFromServer', updates );
+    });
   });
 }

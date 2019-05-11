@@ -1,3 +1,5 @@
+@import "../settings/variables";
+
 @keyframes slide-in-x-animation {
   from {
     opacity: 0;
@@ -41,17 +43,5 @@
   }
   100% {
     transform: translate3d(200%, -20%, 0);
-  }
-}
-
-@keyframes jsFuture {
-  0% {
-    stroke-dashoffset: 1022;
-  }
-  50% {
-    stroke-dashoffset: 2044;
-  }
-  100% {
-    stroke-dashoffset: 3066;
   }
 }
