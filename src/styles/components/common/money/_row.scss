@@ -98,6 +98,10 @@ $bem-use-namespaces: true;
 
   @include element('balance') {
     margin-left: $indent-small;
+
+    &.small {
+      font-size: 12px;
+    }
   }
 
   @include element('bubble-wrapper') {

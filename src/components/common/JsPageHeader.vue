@@ -95,14 +95,14 @@
     <div class="page-header__inner">
 
       <div class="page-header__nav">
-        <div class="page-header__logo-image-wrapper" @click="toggleTheme">
+        <button class="page-header__logo-image-wrapper" @click="toggleTheme">
           <img :src="logoSrc"
                v-if="theme === 'default'"
                class="page-header__logo-image">
           <img :src="logoSrcWhite"
                v-else
                class="page-header__logo-image">
-        </div>
+        </button>
         <a class="page-header__nav-item page-header__nav-item_logo"
            href="https://contest.dev/" target="_blank" rel="noopener">
           <span class="hidden-sm-and-down">Developer Challenges</span>

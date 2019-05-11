@@ -78,7 +78,7 @@
       </div>
       <div class="js-money-row__right">
         <div class="js-money-row__add" :class="tcClass">+${{ defaultFunds }}</div>
-        <div class="js-money-row__balance">{{ formattedBalance }}</div>
+        <div class="js-money-row__balance" :class="{'small': item.balance > 1e8}">{{ formattedBalance }}</div>
       </div>
     </div>
   </div>
