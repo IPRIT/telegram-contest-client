@@ -31,6 +31,12 @@
     },
 
     computed: {
+      filledRowStyle () {
+        return {
+          width: `${(this.item.percents || 0).toFixed(0)}%`
+        };
+      },
+
       zooClasses () {
         const user = this.item.User;
         const colorScheme = user.colorScheme;
@@ -69,7 +75,7 @@
   <div class="js-money-row" @click="addFunds" :data-user-id="item.userId">
     <div class="js-money-row__underlay">
       <div class="js-money-row__empty"></div>
-      <!--<div class="js-money-row__filled" :style="filledRowStyle()"></div>-->
+      <div class="js-money-row__filled" :style="filledRowStyle"></div>
     </div>
     <div class="js-money-row__content">
       <div class="js-money-row__left">

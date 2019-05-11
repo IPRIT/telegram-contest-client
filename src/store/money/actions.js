@@ -38,6 +38,11 @@ export function sortTable ({ commit, state }) {
       const table = state.table.sort((a, b) => {
         return b.balance - a.balance;
       });
+
+      const firstBalance = table[0].balance;
+      table.forEach(row => {
+        row.percents = row.balance / firstBalance * 100;
+      });
       commit( mutations.SET_TABLE, table );
     }, 1000);
   }
