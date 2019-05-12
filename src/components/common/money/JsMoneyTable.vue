@@ -43,7 +43,7 @@
 <template>
   <div :class="classes">
 
-    <div class="js-money-table__title">Awards</div>
+    <div class="js-money-table__title">Final Results</div>
 
     <div class="js-money-table__prize-pool">
       <div class="js-money-table__prize-pool-title">Prize Pool</div>
