@@ -26,7 +26,9 @@
 
     methods: {
       addFunds (ev) {
-        this.$store.dispatch( 'money/addFunds', { userId: this.item.User.id } );
+        if (ev.isTrusted || typeof ev.isTrusted === 'undefined') {
+          this.$store.dispatch( 'money/addFunds', { userId: this.item.User.id } );
+        }
       }
     },
 
@@ -72,7 +74,7 @@
 </script>
 
 <template>
-  <div class="js-money-row" @click="addFunds" :data-user-id="item.userId">
+  <button class="js-money-row" @click.native="addFunds" :data-user-id="item.userId">
     <div class="js-money-row__underlay">
       <div class="js-money-row__empty"></div>
       <div class="js-money-row__filled" :style="filledRowStyle"></div>
@@ -87,7 +89,7 @@
         <div class="js-money-row__balance" :class="{'small': item.balance > 1e8}">{{ formattedBalance }}</div>
       </div>
     </div>
-  </div>
+  </button>
 </template>
 
 <style lang="scss">

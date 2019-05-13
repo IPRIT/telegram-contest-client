@@ -9,6 +9,9 @@ $bem-use-namespaces: true;
   width: 100%;
   cursor: pointer;
   user-select: none;
+  border: 0;
+  background-color: transparent;
+  outline: none;
 
   &:hover {
     #{get-element('add')} {
