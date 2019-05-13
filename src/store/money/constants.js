@@ -1,1 +1,1 @@
-export const DEFAULT_FUNDS = 10;
+export const DEFAULT_FUNDS = 100;

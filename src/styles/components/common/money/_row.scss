@@ -7,21 +7,20 @@ $bem-use-namespaces: true;
   @extend %layer-flex-row;
   position: relative;
   width: 100%;
-  // cursor: pointer;
-  cursor: default;
+  cursor: pointer;
   user-select: none;
 
   &:hover {
-    /*#{get-element('add')} {
+    #{get-element('add')} {
       opacity: 1 !important;
       transform: translateX( 0 ) !important;
-    }*/
+    }
   }
 
   &:active {
-    /*@include media-query(sm-and-up) {
+    @include media-query(sm-and-up) {
       transform: scale(.99);
-    }*/
+    }
   }
 
   @include element('underlay') {
