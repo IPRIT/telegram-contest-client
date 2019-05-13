@@ -38,6 +38,7 @@ $bem-use-namespaces: true;
   @include element('filled') {
     @extend %layer-absolute-fill;
     background-color: white;
+    transition: $primary-transition;
   }
 
   @include element('content') {
