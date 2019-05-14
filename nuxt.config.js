@@ -60,6 +60,15 @@ export default {
     fallback: 'index.html'
   },
 
+  render: {
+    http2: {
+      push: true,
+      pushAssets: (req, res, publicPath, preloadFiles) => preloadFiles
+        .filter(f => f.asType === 'script')
+        .map(f => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`)
+    }
+  },
+
   loadingIndicator: {
     color: '#ffffff',
     background: '#0088cc'
