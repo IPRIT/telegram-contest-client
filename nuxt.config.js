@@ -82,6 +82,7 @@ export default {
      * Run the middleware/*.js on every pages
      */
     middleware: [
+      'theme'
     ]
   },
 
@@ -119,13 +120,33 @@ export default {
      * Moment
      * @see https://github.com/nuxt-community/moment-module
      */
-    ['@nuxtjs/moment', [ 'en-gb' ]]
+    ['@nuxtjs/moment', [ 'en-gb' ]],
+    /**
+     * Yandex Metrika for Nuxt.js
+     * @see https://github.com/RabotaRu/yandex-metrika
+     */
+    ['@rabota/yandex-metrika', {
+      staticCounters: [{
+        id: 53584345,
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true,
+        trackHash: true,
+      }],
+      noscript: true,
+      manualFirstHit: false,
+      firstHitVisitParams: false,
+      logging: isDevelopment,
+      development: true,
+    }],
   ],
   /**
    * PWA Manifest
    */
   manifest: {
-    name: 'Developer Challenges / Issues',
+    name: 'Telegram Contest Issues',
+    short_name: 'Issues',
     description: 'Developer Challenges / Issues',
     keywords: 'javascript, android, ios',
     lang: 'en',
@@ -214,7 +235,9 @@ export default {
      */
     transpile: [
       'md-svg-vue',
-      '@rabota/loader'
+      '@rabota/loader',
+      '@rabota/analytics-layer',
+      '@rabota/yandex-metrika',
     ],
     /**
      * Override chunks naming

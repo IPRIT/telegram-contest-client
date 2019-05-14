@@ -2,9 +2,11 @@ import { createVuexModules } from '../../utils';
 
 // Modules
 import * as ui from '../ui';
+import * as money from '../money';
 
 const modules = {
-  ui
+  ui,
+  money
 };
 
 /**

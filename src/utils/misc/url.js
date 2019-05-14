@@ -69,6 +69,18 @@ export function extractHost (app) {
 }
 
 /**
+ * @param {string} localhost
+ * @returns {string}
+ */
+export function clearLocalHost (localhost) {
+  if (!isLocalHost( localhost )) {
+    return localhost;
+  }
+
+  return localhost.split( ':' )[ 0 ];
+}
+
+/**
  * @param {*} app
  * @returns {string}
  */

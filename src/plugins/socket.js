@@ -1,12 +1,15 @@
 import { SocketManager } from '../utils/network/socket-manager';
 import { SOCKET_URL } from '../utils/misc';
 
-export default function ({ app, store }) {
+export default function ({ app, store }, inject) {
   if (typeof window === 'undefined') {
     return;
   }
 
   const socketManager = SocketManager.getManager();
+
+  inject( 'sm', socketManager );
+
   return socketManager.connect( SOCKET_URL ).then(_ => {
     const socket = socketManager.socket;
     socket.on('issues.update', issue => {
@@ -15,6 +18,22 @@ export default function ({ app, store }) {
       app.$ion.sound.play( 'event' );
 
       store.dispatch( 'prependIssues', [ issue ] );
+    });
+
+    socket.on('money.update', updates => {
+      const state = store.state;
+      const theme = state.ui.theme;
+      if (theme === 'dark') {
+        store.dispatch( 'money/updateFromServer', updates );
+      }
+    });
+
+    socket.on('money.setPrizePool', prizePool => {
+      const state = store.state;
+      const theme = state.ui.theme;
+      if (theme === 'dark') {
+        store.dispatch( 'money/setPrizePool', prizePool );
+      }
     });
   });
 }

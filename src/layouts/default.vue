@@ -4,17 +4,34 @@
   import JsAppWrapper from '../components/common/JsAppWrapper.vue';
   import JsPageHeader from "../components/common/JsPageHeader";
 
+  // Store
+  import { createNamespacedHelpers } from 'vuex';
+
+  const uiStore = createNamespacedHelpers( 'ui' );
+
   export default {
     components: {
       JsApp,
       JsAppWrapper,
       JsPageHeader,
     },
+
+    computed: {
+      ...uiStore.mapState({
+        theme: state => state.theme
+      }),
+
+      classes () {
+        return {
+          [`theme-${this.theme}`]: true
+        };
+      }
+    }
   };
 </script>
 
 <template>
-  <js-app>
+  <js-app :class="classes">
     <js-app-wrapper>
       <template slot="header">
         <js-page-header></js-page-header>

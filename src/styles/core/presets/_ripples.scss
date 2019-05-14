@@ -1,6 +1,10 @@
 @import "../settings/index";
 @import "../tools/index";
 
+@include block('theme-ripple', 'component') {
+
+}
+
 @include block('ripple', 'component') {
   @include element('container') {
     color: inherit;

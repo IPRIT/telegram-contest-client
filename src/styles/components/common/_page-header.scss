@@ -6,7 +6,13 @@
   position: fixed;
   z-index: 2;
   width: 100%;
+  width: 100vw;
   background-color: #fff;
+  transition: $primary-transition;
+
+  .theme-dark & {
+    background-color: $dark-color;
+  }
 
   @include element('inner') {
     @include container;
@@ -15,12 +21,21 @@
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 1px rgba(0, 0, 0, .12);
+
+    .theme-dark & {
+      box-shadow: 0 1px rgba(255, 255, 255, 0.06);
+    }
   }
 
   @include element('nav') {
     @extend %layer-flex-row;
     align-items: center;
     font-size: 15px;
+
+    .theme-default & {
+      position: relative;
+      left: -9px;
+    }
   }
 
   @include element('nav-item') {
@@ -32,6 +47,15 @@
 
     &.active {
       cursor: pointer;
+      user-select: none;
+    }
+
+    .theme-dark & {
+      color: white;
+
+      &.active {
+        color: rgba(white, .8);
+      }
     }
 
     @include modifier('logo') {
@@ -55,10 +79,112 @@
     }
   }
 
+  @include element('logo-image-wrapper') {
+    @extend %layer-flex-column;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+
+    .theme-default & {
+      top: -4px;
+      margin-right: 9px;
+      animation: glitch-middle 3s infinite;
+
+      &:after,
+      &:before {
+        display: block;
+        content: "";
+        width: 22px;
+        position: absolute;
+      }
+
+      &:after {
+        height: 10px;
+        animation: glitch-middle-after 3s infinite;
+      }
+      &:before {
+        height: 10px;
+        transform: translate(0px, 2px);
+        animation: glitch-middle-before 3s infinite;
+      }
+    }
+  }
+
   @include element('divider') {
     padding: 0 $indent-small;
     color: #d4d4d4 !important;
     position: relative;
     top: 1px;
+  }
+
+  @include element('user') {
+    @extend %layer-flex-row;
+    align-items: center;
+    font-weight: 500;
+    font-size: 15px;
+    white-space: nowrap;
+    position: relative;
+    top: 1px;
+  }
+
+  @include element('user-logout') {
+    color: white;
+  }
+
+  @include element('user-photo') {
+    $size: 30px;
+    display: block;
+    width: $size;
+    min-width: $size;
+    height: $size;
+    text-align: center;
+    overflow: hidden;
+    text-decoration: none;
+    border: 0;
+    border-radius: $size / 2;
+    transition: $primary-transition;
+    background-size: 70%;
+    background-position: center center;
+    margin-left: $indent-large;
+
+    .theme-dark & {
+      box-shadow: 0 0 0 2px white;
+    }
+
+    @include media-query(sm-and-down) {
+      margin-left: $indent-medium;
+    }
+  }
+
+  @keyframes glitch-middle {
+    0%,26%,30%,72%,76%,100% { transform: translate(10px,5px) skew(0deg) ; box-shadow: none }
+    30%,70% {transform: translate(10px,5px) skew(40deg);}
+    29%,31%,69%,71% {transform: translate(10px,5px) skew(0deg);}
+    28%,74% { box-shadow:
+      -2px 1px 0 0 cyan,
+      2px -1px 0 0 magenta
+    }
+  }
+
+  @keyframes glitch-middle-after {
+    0%,34%,38%,46%,50%,100% { transform: translate(0,5px); box-shadow: none; }
+    36%,48% { transform: translate(2px,0em);
+      box-shadow:
+        -5px 0 0 0 cyan,
+        2px 0 0 0 magenta,
+        3px 5px 0 -8px cyan
+    }
+  }
+
+  @keyframes glitch-middle-before {
+    0%,30%,34%,50%,54%,100% { transform: translate(0,0); box-shadow: none; }
+    32%,52% { transform: translate(-2px,5px);
+      box-shadow:
+        -2px 0 0 0 red,
+        2px 0 0 0 yellow}
   }
 }

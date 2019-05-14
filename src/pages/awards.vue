@@ -1,20 +1,19 @@
 <script>
-  import JsIssues from '../components/common/issues/JsIssues';
+  import JsMoneyTable from '../components/common/money/JsMoneyTable';
 
   export default {
-    name: 'index-page',
+    name: 'awards-page',
 
     layout: 'default',
 
     components: {
-      JsIssues
+      JsMoneyTable
     },
 
     async fetch ({ app, store, route }) {
       const { dispatch } = store;
 
       return Promise.all([
-        dispatch( 'fetchIssues' ),
         dispatch( 'money/fetchTable' ),
       ]);
     }
@@ -22,9 +21,11 @@
 </script>
 
 <template>
-  <js-issues class="index-page"></js-issues>
+  <div class="awards-page">
+    <js-money-table class="awards-page__table"></js-money-table>
+  </div>
 </template>
 
 <style lang="scss">
-  @import "../styles/pages/index-page";
+  @import "../styles/pages/awards-page";
 </style>
